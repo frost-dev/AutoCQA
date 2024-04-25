@@ -9,14 +9,17 @@
 3. On your terminal, navigate to plugin folder
 4. Run  `npm install`
    
-   <img src="https://github.com/lxpocampoFrost/AutoCQA/assets/117623161/9f00c5fb-2817-4a39-a2ef-8848650d451c" alt="Image description" height="50">
+   
 
 6. After installing run typescript compilation with `Ctrl-Shift-B in Windows`, or `Command-Shift-B for Mac`.
 7. Select `npm watch - plugin`. Typescript will now watch for changes in plugin code.
-8. Go to Figma, open menu got to **Plugins > Development > Import** plugin from manifest
-9. Head over to where you cloned the autoCQA project.
-10. Select `manifest.json`.
-11. You can now run the plugin! Select AutoCQA or start it from **Plugins > Development > AutoCQA**
+   
+   <img src="https://github.com/lxpocampoFrost/AutoCQA/assets/117623161/b6db0d3f-8311-4594-8bcb-1e5938d642c7" alt="Image description" height="100">
+   
+9. Go to Figma, open menu got to **Plugins > Development > Import** plugin from manifest
+10. Head over to where you cloned the autoCQA project.
+11. Select `manifest.json`.
+12. You can now run the plugin! Select AutoCQA or start it from **Plugins > Development > AutoCQA**
 
 
 ## Start the plugin's server:
