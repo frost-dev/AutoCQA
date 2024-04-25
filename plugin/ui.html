@@ -1,0 +1,57 @@
+<h2>Check Website</h2>
+<input id="url-input" type="text" />
+<button id="create">Check Content</button>
+<!-- <h2>Figma: </h2>
+<div id="figma-container" style="margin-top: 20px;"></div> -->
+<h2>Website: </h2>
+<div id="web-container" style="margin-top: 20px;"></div>
+<h2>Correction: </h2>
+<div id="correction-container" style="margin-top: 20px;"></div>
+
+
+<style>
+  .mistake {
+    color: red;
+  }
+</style>
+
+<script>
+let isLoading = false;
+
+document.getElementById('create').onclick = () => {
+  let urlInput = document.getElementById('url-input').value;
+  let variable = parent.postMessage({ pluginMessage: urlInput }, '*')
+  isLoading = true;
+
+  document.getElementById('web-container').innerHTML = "Retrieving site content..."
+  document.getElementById('correction-container').innerHTML = "Checking content..."
+
+  onmessage = async (event) => {
+    console.log('event: ', event.data.pluginMessage);
+    document.getElementById('web-container').innerHTML = event.data.pluginMessage.web
+    document.getElementById('correction-container').innerHTML = event.data.pluginMessage.correction
+    isLoading = false;
+  }
+
+}
+
+</script>
+
+
+<!-- <h2>Rectangle Creator</h2>
+<p>Count: <input id="count" value="5"></p>
+<button id="create">Create</button>
+<button id="cancel">Cancel</button>
+<script>
+
+document.getElementById('create').onclick = () => {
+  const textbox = document.getElementById('count');
+  const count = parseInt(textbox.value, 10);
+  parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*')
+}
+
+document.getElementById('cancel').onclick = () => {
+  parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
+}
+
+</script> -->
