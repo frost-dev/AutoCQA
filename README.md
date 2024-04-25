@@ -1,6 +1,6 @@
 These are the main files for the AutoCQA figma plugin of Frost!
 
-Setup the plugin on figma (For testing or development): 
+#Setup the plugin on figma (For testing or development): 
 
 1. Clone repository
 2. On your terminal, navigate to plugin folder
