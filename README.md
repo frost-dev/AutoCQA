@@ -4,9 +4,7 @@
 
 1. Clone repository
 
-
-   ![image](https://github.com/lxpocampoFrost/AutoCQA/assets/117623161/b2b6dff2-7a73-45ac-baa6-8981980e6cd0)
-
+   <img src="https://github.com/lxpocampoFrost/AutoCQA/assets/117623161/b2b6dff2-7a73-45ac-baa6-8981980e6cd0" alt="Image description" height="200">
 
 
 3. On your terminal, navigate to plugin folder
