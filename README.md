@@ -23,6 +23,6 @@ To run the server:
 2. Run `npm install`
 3. Start the server with `npm start`
 4. Server should be ready to receive requests from the plugin!
-##### Note: Plugin from github fetches from localhost by default, make sure fetch() is pointed to local server.
+##### Note: Plugin fetches from localhost by default, make sure fetch() is pointed to local server.
 ##### Note: Console.logs are left so that you can see if server is receiving requests! check them out on the terminal.
 
