@@ -9,7 +9,7 @@
 3. On your terminal, navigate to plugin folder
 4. Run  `npm install`
    
-   <img src="https://github.com/lxpocampoFrost/AutoCQA/assets/117623161/9f00c5fb-2817-4a39-a2ef-8848650d451c" alt="Image description" height="200">
+   <img src="https://github.com/lxpocampoFrost/AutoCQA/assets/117623161/9f00c5fb-2817-4a39-a2ef-8848650d451c" alt="Image description" height="50">
 
 6. After installing run typescript compilation with `Ctrl-Shift-B in Windows`, or `Command-Shift-B for Mac`.
 7. Select `npm watch - plugin`. Typescript will now watch for changes in plugin code.
