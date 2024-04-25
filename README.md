@@ -6,7 +6,7 @@
 
    <img src="https://github.com/lxpocampoFrost/AutoCQA/assets/117623161/b2b6dff2-7a73-45ac-baa6-8981980e6cd0" alt="Image description" height="400">
 
-3. On your terminal, navigate to plugin folder
+3. On your terminal, navigate to **plugin** directory
 4. Run  `npm install`
    
    <img src="https://github.com/lxpocampoFrost/AutoCQA/assets/117623161/368571d4-bfed-4cd7-bc91-459d3cddef46" alt="Image description" height="50">
