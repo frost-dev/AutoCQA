@@ -4,8 +4,8 @@ These are the main files for the AutoCQA figma plugin of Frost!
 
 1. Clone repository
 2. On your terminal, navigate to plugin folder
-3. Run 'npm install'
-4. After installing run typescript compilation with Ctrl-Shift-B in Windows, or Command-Shift-B for Mac.
+3. Run  `npm install`
+4. After installing run typescript compilation with `Ctrl-Shift-B in Windows`, or `Command-Shift-B for Mac`.
 5. Select npm watch - plugin. Typescript will now watch for changes in plugin code.
 6. Go to Figma, open menu got to Plugins > Development > Import plugin from manifest
 7. Head over to where you cloned the autoCQA project.
