@@ -1,10 +1,9 @@
-![image](https://github.com/lxpocampoFrost/AutoCQA/assets/117623161/3d7be2e2-0614-4523-b5fe-2d755c38c8d1)# These are the main files for the AutoCQA figma plugin of Frost!
+# These are the main files for the AutoCQA figma plugin of Frost!
 
 ## Setup the plugin on figma (For testing or development):
 
 1. Clone repository
    ![image](https://github.com/lxpocampoFrost/AutoCQA/assets/117623161/b2b6dff2-7a73-45ac-baa6-8981980e6cd0)
-
 3. On your terminal, navigate to plugin folder
 4. Run  `npm install`
 5. After installing run typescript compilation with `Ctrl-Shift-B in Windows`, or `Command-Shift-B for Mac`.
