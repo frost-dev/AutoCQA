@@ -18,7 +18,7 @@
    
 9. Go to Figma, open menu got to **Plugins > Development > Import plugin from manifest**
 
-   <img src="https://github.com/lxpocampoFrost/AutoCQA/assets/117623161/27a0e8b9-d99e-4952-926d-abad383fed62" alt="Image description" height="100">
+   <img src="https://github.com/lxpocampoFrost/AutoCQA/assets/117623161/27a0e8b9-d99e-4952-926d-abad383fed62" alt="Image description" height="400">
     
 10. Head over to where you cloned the autoCQA project.  Look for `manifest.json`.
 12. You can now run the plugin! Select AutoCQA or start it from **Plugins > Development > AutoCQA**
