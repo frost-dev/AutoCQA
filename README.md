@@ -11,3 +11,12 @@
 7. Head over to where you cloned the autoCQA project.
 8. Select `manifest.json`.
 9. You can now run the plugin! Select AutoCQA or start it from **Plugins > Development > AutoCQA**
+
+
+## Start the plugin's server:
+
+The plugin's core functionalites are handled on the backend. Finding the text on the website, Asking GPT to correct mistakes. 
+Make sure to run this server or autoCQA won't work. Especially if you plan to test or add new features.
+To run the server: 
+
+1. After cloning repository, on the terminal, navigate to the **server** directory.
