@@ -5,6 +5,10 @@ figma.ui.resize(500,500);
 
 figma.ui.onmessage =  async (urlInput: string) => {
   try {
+    function removeFragment(url: string) {
+      return url.split('#')[0];
+    }
+
     let text = ""
     for (const node of figma.currentPage.selection) {
       if ("characters" in node) {
@@ -12,14 +16,16 @@ figma.ui.onmessage =  async (urlInput: string) => {
       }
     }
     
-    const response = await fetch(`http://localhost:3000/verify-content?siteURL="${urlInput}"&figmaContent="${encodeURIComponent(text)}"`);
+    const response = await fetch(`http://localhost:3000/verify-content?siteURL="${removeFragment(urlInput)}"&figmaContent="${encodeURIComponent(text)}"`);
     console.log(response);
     const data = await response.json();
-    console.log('The API: ', data.gpt_correction.content);
+    // console.log('The API: ', data.gpt_correction.content);
+    // console.log('Page title: ', data.pageTitle)
     
     figma.ui.postMessage({
       web: data.gpt_correction.siteContent ? data.gpt_correction.siteContent : 'Does not exist',
-      correction: data.gpt_correction.content ? data.gpt_correction.content : 'Content is correct!'
+      correction: data.gpt_correction.content ? data.gpt_correction.content : 'Content is correct!',
+      pageTitle: data.pageTitle ? data.pageTitle : 'Could not determine page title',
     });
 
   } catch (e) { 
