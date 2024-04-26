@@ -16,6 +16,7 @@ async function compareTextGPT(siteText, figmaText) {
                     Proofread siteText against Figma text. 
                     Highlight errors (spelling/missing words) with <span class="mistake">. 
                     Return JSON with highlighted text. Replace \n with <br> tags.
+                    If there is a placeholder character like ?, no need to mark with <span class="mistake">
                     
                     Example 1:
 
