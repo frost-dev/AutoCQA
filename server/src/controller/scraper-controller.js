@@ -50,7 +50,7 @@ const verifyContent = async (url, textToCompare) => {
     })
 
     console.log('Percent: ', correctness);
-    console.log('match: ', match);
+    console.log('Site Text: ', match);
 
     if(match) {
         gpt_correction = await compareTextGPT(match, textToCompare);
