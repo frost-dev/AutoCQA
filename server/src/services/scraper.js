@@ -13,7 +13,8 @@ async function scrapeText(url) {
 
     const $ = cheerio.load(html);
 
-    const textElements = $('body').find('*');
+    let textElements = $('body').find('*');
+    let pageTitle = $('title').text().trim();
 
     const elementsWithText = textElements.filter(function() {
       return hasTextContent($(this)) || $(this).find(hasTextContent);
@@ -27,7 +28,10 @@ async function scrapeText(url) {
       }
     });
 
-    return scrapedData
+    return {
+      scrapedData: scrapedData,
+      pageTitle: pageTitle
+    }
   } catch (error) {
     console.error(error);
   }
