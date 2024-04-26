@@ -2,31 +2,32 @@ const scrapeText = require('../services/scraper');
 const compareTextGPT = require('../services/requestGPT');
 
 const verifyContent = async (url, textToCompare) => {
+  try {
     function levenshtein(a, b) {
-        var matrix = [];
-        var a = a + "", b = b + "";
-      
-        for (var i = 0; i <= b.length; i++){
-          matrix[i] = [i];
-        }
-      
-        for (var j = 0; j <= a.length; j++){
-          matrix[0][j] = j;
-        }
-      
-        for (var i = 1; i <= b.length; i++){
-          for (var j = 1; j <= a.length; j++){
-            if (b.charAt(i-1) == a.charAt(j-1)){
-              matrix[i][j] = matrix[i-1][j-1];
-            } else {
-              matrix[i][j] = Math.min(matrix[i-1][j-1] + 1, Math.min(matrix[i][j-1] + 1, matrix[i-1][j] + 1));
-            }
+      var matrix = [];
+      var a = a + "", b = b + "";
+    
+      for (var i = 0; i <= b.length; i++){
+        matrix[i] = [i];
+      }
+    
+      for (var j = 0; j <= a.length; j++){
+        matrix[0][j] = j;
+      }
+    
+      for (var i = 1; i <= b.length; i++){
+        for (var j = 1; j <= a.length; j++){
+          if (b.charAt(i-1) == a.charAt(j-1)){
+            matrix[i][j] = matrix[i-1][j-1];
+          } else {
+            matrix[i][j] = Math.min(matrix[i-1][j-1] + 1, Math.min(matrix[i][j-1] + 1, matrix[i-1][j] + 1));
           }
         }
-      
-        var distance = matrix[b.length][a.length];
-        var percent = ((1 - distance / Math.max(a.length, b.length)) * 100).toFixed(2);
-        return parseFloat(percent);
+      }
+    
+      var distance = matrix[b.length][a.length];
+      var percent = ((1 - distance / Math.max(a.length, b.length)) * 100).toFixed(2);
+      return parseFloat(percent);
     }
 
     function replaceNewLinesWithBR(str) {
@@ -39,7 +40,7 @@ const verifyContent = async (url, textToCompare) => {
     let correctness;
     let currentScore = 0;
 
-    scrapeResult.map((item) => {
+    scrapeResult.scrapedData.map((item) => {
       let percentage = levenshtein(textToCompare,item.content);
     
       if(percentage > 50 && percentage > currentScore) {
@@ -62,10 +63,19 @@ const verifyContent = async (url, textToCompare) => {
     }
 
     console.log('GPT Correction: ', gpt_correction);
+    console.log('Page title: ', scrapeResult.pageTitle);
 
     return {
         gpt_correction: gpt_correction,
+        pageTitle: scrapeResult.pageTitle,
     }
+  } catch (error) {
+    return {
+      gpt_correction: null,
+      pageTitle: null,
+    }
+  }
+    
 }
 
 module.exports = verifyContent
