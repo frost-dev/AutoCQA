@@ -4,21 +4,32 @@ figma.showUI(__html__);
 figma.ui.resize(500,500);
 
 figma.ui.onmessage =  async (urlInput: string) => {
-  let text = ""
-  for (const node of figma.currentPage.selection) {
-    if ("characters" in node) {
-      text = node.characters;
+  try {
+    let text = ""
+    for (const node of figma.currentPage.selection) {
+      if ("characters" in node) {
+        text = node.characters;
+      }
     }
+    
+    const response = await fetch(`http://localhost:3000/verify-content?siteURL="${urlInput}"&figmaContent="${encodeURIComponent(text)}"`);
+    console.log(response);
+    const data = await response.json();
+    console.log('The API: ', data.gpt_correction.content);
+    
+    figma.ui.postMessage({
+      web: data.gpt_correction.siteContent ? data.gpt_correction.siteContent : 'Does not exist',
+      correction: data.gpt_correction.content ? data.gpt_correction.content : 'Content is correct!'
+    });
+
+  } catch (e) { 
+    figma.ui.postMessage({
+      web:'Sorry! Something went wrong',
+      correction: ''
+    });
   }
 
-  const response = await fetch(`http://localhost:3000/verify-content?siteURL="${urlInput}"&figmaContent="${encodeURIComponent(text)}"`);
-  const data = await response.json();
-  console.log('The API: ', data.gpt_correction.content);
   
-  figma.ui.postMessage({
-    web: data.gpt_correction.siteContent ? data.gpt_correction.siteContent : 'Does not exist',
-    correction: data.gpt_correction.content ? data.gpt_correction.content : 'Content is correct!'
-  });
 };
 
 
